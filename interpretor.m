@@ -16,9 +16,9 @@
 %Convert an ExprC into a Value%
 function val = interpretor(expr, env)
     if isa(expr, 'NumC')
-        val = NumV(expr.getNum());
+        val = NumV(expr.num);
     elseif isa(expr, 'StrgC')
-        val = StrgV(expr.getStrg());
+        val = StrgV(expr.str);
     elseif isa(expr, 'IdC')
         val = lookup(expr.sym);
     elseif isa(expr, 'IfC')
