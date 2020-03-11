@@ -5,9 +5,10 @@ function val = interp_appc(expr, env)
         argvals.append(interpretor(arg, env));
     end
     if isa(funval, 'CloV')
-        new-env = bind(funval.params, argvals).append(env);
-        val = interpretor(funval.body, new-env);
-    elseif isa(funval, 'PrimV')
-        val = funval.f(argvals);
+        newenv = topenv();
+       % bind(funval.params, argvals).append(env);
+        val = interpretor(funval.body, newenv);
+    elseif isa(funval, 'PrimV.Add')
+        val = PrimV.add(argvals);
     end
 end
