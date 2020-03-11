@@ -14,12 +14,25 @@
 % CloV = struct(params,[],body,[],env,[]);
    
 %Convert an ExprC into a Value%
-function val = interpretor(expr)
-    % PrimV = struct(f,[]);
+function val = interpretor(expr, env)
     if isa(expr, 'NumC')
-        val = NumV(expr.num);
+        val = NumV(expr.getNum());
     elseif isa(expr, 'StrgC')
-        val = StrgV(expr.str);
+        val = StrgV(expr.getStrg());
+    elseif isa(expr, 'IfC')
+        if interpretor(expr.getTst(), env)
+            val = interpretor(expr.getThn(), env);
+        else
+            val = interpretor(expr.getEls(), env);
+        end
+    elseif isa(expr, 'VarsC')
+        val = interp_vars(expr, env);
+    elseif isa(expr, 'LamC')
+        val = ClosV(expr.params, expr.body, env);
+    elseif isa(expr, 'AppC')
+        val = interp_appc(expr, env);
+    else
+        error("DUNQ: Cannot process expression")
     end
 end
 
