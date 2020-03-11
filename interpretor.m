@@ -12,17 +12,15 @@
 % BoolV = struct(b,[]);
 % StrgV = struct(str,[]);
 % CloV = struct(params,[],body,[],env,[]);
-
-
+   
 %Convert an ExprC into a Value%
 function val = interpretor(expr)
     % PrimV = struct(f,[]);
-    import NumC
-    import StrgC
     if isa(expr, 'NumC')
-        val = expr.num;
+        val = NumV(expr.num);
     elseif isa(expr, 'StrgC')
-        val = expr.str;
+        val = StrgV(expr.str);
     end
 end
+
 
