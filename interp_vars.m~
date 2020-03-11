@@ -1,9 +1,0 @@
-function [expr] = interp_vars(expr,vars)
-    %INTERP_VARS Substitute var values into vars body
-    %   Detailed explanation goes here
-    e
-    while not(ISEMPTY(vars))
-        
-    end
-end
-
