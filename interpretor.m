@@ -19,6 +19,8 @@ function val = interpretor(expr, env)
         val = NumV(expr.getNum());
     elseif isa(expr, 'StrgC')
         val = StrgV(expr.getStrg());
+    elseif isa(expr, 'IdC')
+        val = lookup(expr.sym);
     elseif isa(expr, 'IfC')
         if interpretor(expr.getTst(), env)
             val = interpretor(expr.getThn(), env);
