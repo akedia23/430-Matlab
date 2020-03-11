@@ -20,7 +20,7 @@ function val = interpretor(expr, env)
     elseif isa(expr, 'StrgC')
         val = StrgV(expr.str);
     elseif isa(expr, 'IdC')
-        val = lookup(expr.sym);
+        val = lookup(expr.sym, env);
     elseif isa(expr, 'IfC')
         if interpretor(expr.getTst(), env)
             val = interpretor(expr.getThn(), env);
