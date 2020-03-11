@@ -3,7 +3,7 @@ classdef PrimV < Value
       Add, Sub, Mult, Div, Leq, Eq
    end
    
-   methods
+   methods(Static)
        function val = add(args)
            val = NumV(args(1).num + args(2).num);
        end
@@ -23,7 +23,7 @@ classdef PrimV < Value
                val = BoolV(false);
            end
        end
-       function val = eq(args)
+       function val = equals(args)
            if isa(args(1), 'NumV') && isa(args(2), 'NumV')
                if args(1).num == args(2).num
                    val = BoolV(true);
