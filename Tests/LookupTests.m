@@ -17,6 +17,11 @@ classdef LookupTests < matlab.unittest.TestCase
             actSolution = lookup("/", topenv());
             testCase.verifyEqual(actSolution, PrimV.Div);
         end
+        function testRandomLookup(testCase)
+            err = "DUNQ:err";
+            func = @() lookup("not-here", topenv());
+            testCase.verifyError(func, err);
+        end
     end
 
 end
