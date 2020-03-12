@@ -6,5 +6,5 @@ function val = lookup(id, env)
             return;
         end
     end
-    error('DUNQ:err', "unable to find id: "+id+" in env");
+    error('DUNQ:lookup', "unable to find id: "+id+" in env");
 end
