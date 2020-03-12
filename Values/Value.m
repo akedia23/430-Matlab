@@ -1,4 +1,4 @@
-classdef Value
+classdef Value < matlab.mixin.Heterogeneous
 
     properties
     end

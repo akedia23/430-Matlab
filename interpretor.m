@@ -30,7 +30,7 @@ function val = interpretor(expr, env)
     elseif isa(expr, 'VarsC')
         val = interp_vars(expr, env);
     elseif isa(expr, 'LamC')
-        val = ClosV(expr.params, expr.body, env);
+        val = CloV(expr.params, expr.body, env);
     elseif isa(expr, 'AppC')
         val = interp_appc(expr, env);
     else

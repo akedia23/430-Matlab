@@ -1,4 +1,4 @@
-classdef ExprC
+classdef ExprC < matlab.mixin.Heterogeneous
     
     properties
     end
